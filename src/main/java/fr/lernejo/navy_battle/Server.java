@@ -51,8 +51,7 @@ public class Server {
             .POST(HttpRequest.BodyPublishers.ofString("{\"id\":\"1\", \"url\":\"http://localhost:"
                 + port + "\", \"message\":\"hello\"}")).build();
         try {
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
+            client.send(request, HttpResponse.BodyHandlers.ofString());
         }
         catch (InterruptedException | IOException e) {
             e.printStackTrace();
